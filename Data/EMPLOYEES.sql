@@ -1,0 +1,45 @@
+INSERT INTO EMPLOYEES VALUES (501,'Raj Kumar','Manager',65000);
+INSERT INTO EMPLOYEES VALUES (502,'Anil Sharma','Sales Executive',35000);
+INSERT INTO EMPLOYEES VALUES (503,'Priya Reddy','Sales Executive',36000);
+INSERT INTO EMPLOYEES VALUES (504,'Suresh Babu','Accountant',40000);
+INSERT INTO EMPLOYEES VALUES (505,'Neha Singh','HR Executive',42000);
+INSERT INTO EMPLOYEES VALUES (506,'Arjun Rao','Store Manager',55000);
+INSERT INTO EMPLOYEES VALUES (507,'Kiran Patel','Sales Executive',34000);
+INSERT INTO EMPLOYEES VALUES (508,'Divya Nair','Support Engineer',45000);
+INSERT INTO EMPLOYEES VALUES (509,'Vijay Kumar','Software Engineer',60000);
+INSERT INTO EMPLOYEES VALUES (510,'Meena Reddy','Sales Executive',37000);
+
+INSERT INTO EMPLOYEES VALUES (511,'Ravi Teja','Sales Executive',38000);
+INSERT INTO EMPLOYEES VALUES (512,'Swathi Rao','Accountant',41000);
+INSERT INTO EMPLOYEES VALUES (513,'Mahesh Kumar','Store Assistant',28000);
+INSERT INTO EMPLOYEES VALUES (514,'Pooja Sharma','HR Manager',70000);
+INSERT INTO EMPLOYEES VALUES (515,'Naveen Reddy','Sales Executive',39000);
+INSERT INTO EMPLOYEES VALUES (516,'Harish Kumar','Technical Lead',75000);
+INSERT INTO EMPLOYEES VALUES (517,'Lakshmi Devi','Support Engineer',43000);
+INSERT INTO EMPLOYEES VALUES (518,'Vamsi Krishna','Software Engineer',62000);
+INSERT INTO EMPLOYEES VALUES (519,'Asha Rao','Sales Executive',35000);
+INSERT INTO EMPLOYEES VALUES (520,'Rahul Verma','Store Manager',58000);
+
+INSERT INTO EMPLOYEES VALUES (521,'Deepak Singh','Sales Executive',36000);
+INSERT INTO EMPLOYEES VALUES (522,'Keerthi Reddy','HR Executive',44000);
+INSERT INTO EMPLOYEES VALUES (523,'Manoj Kumar','Accountant',42000);
+INSERT INTO EMPLOYEES VALUES (524,'Sneha Rao','Sales Executive',37000);
+INSERT INTO EMPLOYEES VALUES (525,'Rakesh Gupta','Support Engineer',46000);
+INSERT INTO EMPLOYEES VALUES (526,'Nikhil Jain','Software Engineer',65000);
+INSERT INTO EMPLOYEES VALUES (527,'Bhavana Rao','Sales Executive',35000);
+INSERT INTO EMPLOYEES VALUES (528,'Sai Krishna','Store Assistant',30000);
+INSERT INTO EMPLOYEES VALUES (529,'Harika Reddy','Sales Executive',38000);
+INSERT INTO EMPLOYEES VALUES (530,'Aditya Varma','Manager',68000);
+
+INSERT INTO EMPLOYEES VALUES (531,'Gopal Krishna','Technical Lead',72000);
+INSERT INTO EMPLOYEES VALUES (532,'Nandini Rao','HR Executive',45000);
+INSERT INTO EMPLOYEES VALUES (533,'Ashok Kumar','Sales Executive',36000);
+INSERT INTO EMPLOYEES VALUES (534,'Preethi Reddy','Accountant',43000);
+INSERT INTO EMPLOYEES VALUES (535,'Vinay Kumar','Support Engineer',47000);
+INSERT INTO EMPLOYEES VALUES (536,'Sravani Devi','Sales Executive',35000);
+INSERT INTO EMPLOYEES VALUES (537,'Rajesh Gupta','Software Engineer',61000);
+INSERT INTO EMPLOYEES VALUES (538,'Shilpa Rao','Sales Executive',39000);
+INSERT INTO EMPLOYEES VALUES (539,'Naveen Kumar','Store Manager',56000);
+INSERT INTO EMPLOYEES VALUES (540,'Sindhu Priya','Sales Executive',37000);
+
+COMMIT;
