@@ -1,4 +1,12 @@
 # Oracle Inventory Sales Management System
+# Oracle Inventory Sales Management System
+
+![Oracle](https://img.shields.io/badge/Database-Oracle-red?logo=oracle&logoColor=white)
+![GitHub repo size](https://img.shields.io/github/repo-size/saida-anwar-basha-shaik-dev/Oracle_Inventory_Sales_Management_System)
+![GitHub last commit](https://img.shields.io/github/last-commit/saida-anwar-basha-shaik-dev/Oracle_Inventory_Sales_Management_System)
+![GitHub stars](https://img.shields.io/github/stars/saida-anwar-basha-shaik-dev/Oracle_Inventory_Sales_Management_System?style=social)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 
 ## 📌 Overview
 
