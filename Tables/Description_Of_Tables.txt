@@ -1,0 +1,391 @@
+SQL> desc categories;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CATEGORY_ID                               NOT NULL NUMBER
+ CATEGORY_NAME                             NOT NULL VARCHAR2(40)
+
+SQL> desc customers;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CUSTOMER_ID                               NOT NULL NUMBER
+ CUSTOMER_NAME                             NOT NULL VARCHAR2(50)
+ PHONE                                              VARCHAR2(15)
+ EMAIL                                              VARCHAR2(100)
+ ADDRESS                                            VARCHAR2(100)
+ CITY                                               VARCHAR2(30)
+
+SQL> desc employees;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL NUMBER
+ EMP_NAME                                  NOT NULL VARCHAR2(50)
+ DESIGNATION                                        VARCHAR2(30)
+ SALARY                                             NUMBER(10,2)
+
+SQL> desc inventory_log;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOG_ID                                    NOT NULL NUMBER
+ PRODUCT_ID                                         NUMBER
+ OLD_STOCK                                          NUMBER
+ NEW_STOCK                                          NUMBER
+ UPDATED_DATE                                       DATE
+
+SQL> desc order_items;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORDER_ITEM_ID                             NOT NULL NUMBER
+ ORDER_ID                                           NUMBER
+ PRODUCT_ID                                         NUMBER
+ QUANTITY                                           NUMBER
+ PRICE                                              NUMBER(10,2)
+
+SQL> desc orders;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORDER_ID                                  NOT NULL NUMBER
+ CUSTOMER_ID                                        NUMBER
+ EMP_ID                                             NUMBER
+ ORDER_DATE                                         DATE
+ STATUS                                             VARCHAR2(20)
+
+SQL> desc payments;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PAYMENT_ID                                NOT NULL NUMBER
+ ORDER_ID                                           NUMBER
+ PAYMENT_MODE                                       VARCHAR2(20)
+ PAYMENT_DATE                                       DATE
+ AMOUNT                                             NUMBER(10,2)
+
+SQL> desc products;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PRODUCT_ID                                NOT NULL NUMBER
+ PRODUCT_NAME                              NOT NULL VARCHAR2(100)
+ CATEGORY_ID                                        NUMBER
+ SUPPLIER_ID                                        NUMBER
+ PRICE                                              NUMBER(10,2)
+ STOCK                                              NUMBER
+
+SQL> desc purchases;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PURCHASE_ID                               NOT NULL NUMBER
+ SUPPLIER_ID                                        NUMBER
+ PRODUCT_ID                                         NUMBER
+ QUANTITY                                           NUMBER
+ PURCHASE_DATE                                      DATE
+
+SQL> desc suppliers;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SUPPLIER_ID                               NOT NULL NUMBER
+ SUPPLIER_NAME                             NOT NULL VARCHAR2(50)
+ PHONE                                              VARCHAR2(15)
+ EMAIL                                              VARCHAR2(100)
+
+SQL> SELECT uc.table_name,
+  2         uc.constraint_name,
+  3         uc.constraint_type,
+  4         ucc.column_name,
+  5         uc.r_constraint_name
+  6  FROM user_constraints uc
+  7  JOIN user_cons_columns ucc
+  8    ON uc.constraint_name = ucc.constraint_name
+  9  WHERE uc.table_name IN
+ 10        ('CATEGORIES',
+ 11         'CUSTOMERS',
+ 12         'EMPLOYEES',
+ 13         'INVENTORY_LOG',
+ 14         'ORDER_ITEMS',
+ 15         'ORDERS',
+ 16         'PAYMENTS',
+ 17         'PRODUCTS',
+ 18         'PURCHASES',
+ 19         'SUPPLIERS')
+ 20  ORDER BY uc.table_name, uc.constraint_type, uc.constraint_name, ucc.position;
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+CATEGORIES                     SYS_C0010142                   C                 
+CATEGORY_NAME                                                                   
+                                                                                
+                                                                                
+CATEGORIES                     SYS_C0010143                   P                 
+CATEGORY_ID                                                                     
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+CATEGORIES                     SYS_C0010144                   U                 
+CATEGORY_NAME                                                                   
+                                                                                
+                                                                                
+CUSTOMERS                      SYS_C0010134                   C                 
+CUSTOMER_NAME                                                                   
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+                                                                                
+CUSTOMERS                      SYS_C0010135                   P                 
+CUSTOMER_ID                                                                     
+                                                                                
+                                                                                
+CUSTOMERS                      SYS_C0010136                   U                 
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+PHONE                                                                           
+                                                                                
+                                                                                
+CUSTOMERS                      SYS_C0010137                   U                 
+EMAIL                                                                           
+                                                                                
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+EMPLOYEES                      SYS_C0010151                   C                 
+EMP_NAME                                                                        
+                                                                                
+                                                                                
+EMPLOYEES                      SYS_C0010152                   C                 
+SALARY                                                                          
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+EMPLOYEES                      SYS_C0010153                   P                 
+EMP_ID                                                                          
+                                                                                
+                                                                                
+INVENTORY_LOG                  SYS_C0010167                   P                 
+LOG_ID                                                                          
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+                                                                                
+INVENTORY_LOG                  FK_LOG_PRODUCT                 R                 
+PRODUCT_ID                                                                      
+SYS_C0010148                                                                    
+                                                                                
+ORDERS                         SYS_C0010154                   P                 
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+ORDER_ID                                                                        
+                                                                                
+                                                                                
+ORDERS                         FK_ORDER_CUSTOMER              R                 
+CUSTOMER_ID                                                                     
+SYS_C0010135                                                                    
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+ORDERS                         FK_ORDER_EMPLOYEE              R                 
+EMP_ID                                                                          
+SYS_C0010153                                                                    
+                                                                                
+ORDER_ITEMS                    SYS_C0010157                   C                 
+QUANTITY                                                                        
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+ORDER_ITEMS                    SYS_C0010158                   P                 
+ORDER_ITEM_ID                                                                   
+                                                                                
+                                                                                
+ORDER_ITEMS                    FK_ORDERITEM_ORDER             R                 
+ORDER_ID                                                                        
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+SYS_C0010154                                                                    
+                                                                                
+ORDER_ITEMS                    FK_ORDERITEM_PRODUCT           R                 
+PRODUCT_ID                                                                      
+SYS_C0010148                                                                    
+                                                                                
+PAYMENTS                       SYS_C0010161                   P                 
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+PAYMENT_ID                                                                      
+                                                                                
+                                                                                
+PAYMENTS                       FK_PAYMENT_ORDER               R                 
+ORDER_ID                                                                        
+SYS_C0010154                                                                    
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+PRODUCTS                       SYS_C0010145                   C                 
+PRODUCT_NAME                                                                    
+                                                                                
+                                                                                
+PRODUCTS                       SYS_C0010146                   C                 
+PRICE                                                                           
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+PRODUCTS                       SYS_C0010147                   C                 
+STOCK                                                                           
+                                                                                
+                                                                                
+PRODUCTS                       SYS_C0010148                   P                 
+PRODUCT_ID                                                                      
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+                                                                                
+PRODUCTS                       FK_PRODUCT_CATEGORY            R                 
+CATEGORY_ID                                                                     
+SYS_C0010143                                                                    
+                                                                                
+PRODUCTS                       FK_PRODUCT_SUPPLIER            R                 
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+SUPPLIER_ID                                                                     
+SYS_C0010139                                                                    
+                                                                                
+PURCHASES                      SYS_C0010163                   C                 
+QUANTITY                                                                        
+                                                                                
+                                                                                
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+PURCHASES                      SYS_C0010164                   P                 
+PURCHASE_ID                                                                     
+                                                                                
+                                                                                
+PURCHASES                      FK_PURCHASE_PRODUCT            R                 
+PRODUCT_ID                                                                      
+SYS_C0010148                                                                    
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+PURCHASES                      FK_PURCHASE_SUPPLIER           R                 
+SUPPLIER_ID                                                                     
+SYS_C0010139                                                                    
+                                                                                
+SUPPLIERS                      SYS_C0010138                   C                 
+SUPPLIER_NAME                                                                   
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+                                                                                
+                                                                                
+SUPPLIERS                      SYS_C0010139                   P                 
+SUPPLIER_ID                                                                     
+                                                                                
+                                                                                
+SUPPLIERS                      SYS_C0010140                   U                 
+
+TABLE_NAME                     CONSTRAINT_NAME                C                 
+------------------------------ ------------------------------ -                 
+COLUMN_NAME                                                                     
+--------------------------------------------------------------------------------
+R_CONSTRAINT_NAME                                                               
+------------------------------                                                  
+PHONE                                                                           
+                                                                                
+                                                                                
+SUPPLIERS                      SYS_C0010141                   U                 
+EMAIL                                                                           
+                                                                                
+                                                                                
+
+35 rows selected.
+
+SQL> SPOOL OFF
